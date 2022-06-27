@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <NoBarcode />
-  </div>
+  </v-app>
 </template>
 
 <script>

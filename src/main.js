@@ -1,7 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
 import vuetify from "@/plugins/vuetify.js"; // path to vuetify export
-import "vuetify/dist/vuetify.min.css";
 import i18n from "./i18n";
 import * as VueGoogleMaps from "vue2-google-maps";
 import "./assets/css/custom.css";

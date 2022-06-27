@@ -36,8 +36,9 @@
               :placeholder="$t('MemberForm.PH-region')"
               outlined
               v-model="userData.adminId"
-              item-value="LOOKUP_LIST_ID"
-              item-text="NAME"
+              :items="adminIdList"
+              item-value="admin"
+              item-text="adminName"
               required
             ></v-autocomplete>
           </div>
@@ -186,7 +187,7 @@ export default {
   data() {
     return {
       userData: {
-        nationalId: 1234567899,
+        nationalId: null,
         countryMobileCode: "966",
         mobile: null,
         adminId: null,
@@ -202,6 +203,7 @@ export default {
         longitude: null,
         latitude: null,
       },
+      adminIdList: [],
       valid: null,
       rules: {
         min_QR: (v) => (v != null ? v.length >= 4 || "" : ""),
@@ -215,8 +217,10 @@ export default {
     },
     async sendDataManageAdd() {},
   },
-  created() {
-    getAdmin2();
+  async mounted() {
+    await getAdmin2().then((res) => {
+      this.adminIdList = res.data;
+    });
   },
 };
 </script>
